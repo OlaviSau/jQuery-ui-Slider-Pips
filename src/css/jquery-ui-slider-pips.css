@@ -49,11 +49,18 @@
         cursor: default;
     }
 
-    /* little pip/line position & size */
+        /* little pip/line position & size */
     .ui-slider-pips .ui-slider-line {
-        background: #999;
-        width: 1px;
-        height: 3px;
+        background: #fff;
+        width: 2px;
+        height: 4px;
+        position: absolute;
+        left: 50%;
+    }
+	.ui-slider-pips .ui-slider-line-label {
+        background: #fff;
+        width: 2px;
+        height: 15px;
         position: absolute;
         left: 50%;
     }
@@ -63,6 +70,13 @@
     .ui-slider-pips .ui-slider-label {
         position: absolute;
         top: 5px;
+        left: 50%;
+        margin-left: -1em;
+        width: 2em;
+    }
+	.ui-slider-pips .ui-slider-label-special {
+        position: absolute;
+        top: 15px;
         left: 50%;
         margin-left: -1em;
         width: 2em;
