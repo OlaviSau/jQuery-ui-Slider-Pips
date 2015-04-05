@@ -27,9 +27,12 @@
 
                 rest: "pip",
                 // "label", "pip", false
-
-                labels: false,
+				
+				labels: false,
                 // [array], { first: "string", rest: [array], last: "string" }, false
+				
+				specialLabels: false,
+				// false, true
 
                 prefix: "",
                 // "", string
@@ -265,14 +268,20 @@
                 css = ( slider.options.orientation === "horizontal" ) ?
                     "left: "+ percent :
                     "bottom: "+ percent;
-
-
+					if(options.specialLabels === true && options.formatLabel(label) !== ""){
+                // add this current pip to the collection
+                return  "<span class=\""+classes+"\" style=\""+css+"\">"+
+                            "<span class=\"ui-slider-line-label\"></span>"+
+                            "<span class=\"ui-slider-label-special\" data-value=\""+labelValue+"\">"+ options.formatLabel(label) +"</span>"+
+                        "</span>";
+		}
+		else{
                 // add this current pip to the collection
                 return  "<span class=\""+classes+"\" style=\""+css+"\">"+
                             "<span class=\"ui-slider-line\"></span>"+
                             "<span class=\"ui-slider-label\" data-value=\""+labelValue+"\">"+ options.formatLabel(label) +"</span>"+
                         "</span>";
-
+		}
             }
 
             // we don't want the step ever to be a floating point.
@@ -372,6 +381,9 @@
 
                 labels: false,
                 // [array], { first: "string", rest: [array], last: "string" }, false
+				
+				specialLabels: false,
+				// true, false
 
                 prefix: "",
                 // "", string
